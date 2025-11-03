@@ -1,0 +1,62 @@
+[
+  {
+    "id": "cf58756d-116c-4a41-aad7-ed3bc867c6af",
+    "titulo": "Aprender HTML",
+    "descripcion": "Primer paso en desarrollo web",
+    "estado": "Pendiente",
+    "creacion": "2025-11-03T18:20:59.336Z",
+    "ultimaEdicion": "2025-11-03T18:20:59.336Z",
+    "vencimiento": null,
+    "dificultad": "Medio"
+  },
+  {
+    "id": "e1401b6d-7950-43e3-9e56-35697bb1522c",
+    "titulo": "Aprender CSS",
+    "descripcion": "Para estilos y diseño",
+    "estado": "Pendiente",
+    "creacion": "2025-11-03T18:20:59.336Z",
+    "ultimaEdicion": "2025-11-03T18:33:04.857Z",
+    "vencimiento": null,
+    "dificultad": "Fácil"
+  },
+  {
+    "id": "b7928ab9-9c7a-4806-ae76-b55786909b9e",
+    "titulo": "Aprender JavaScript",
+    "descripcion": "Para lógica y dinámicas",
+    "estado": "Pendiente",
+    "creacion": "2025-11-03T18:20:59.336Z",
+    "ultimaEdicion": "2025-11-03T18:20:59.336Z",
+    "vencimiento": null,
+    "dificultad": "Difícil"
+  },
+  {
+    "id": "ed1cd484-f52f-4c9d-99b0-36c38845f8dd",
+    "titulo": "Aprender React",
+    "descripcion": "Para interfaces interactivas",
+    "estado": "Pendiente",
+    "creacion": "2025-11-03T18:20:59.336Z",
+    "ultimaEdicion": "2025-11-03T18:20:59.336Z",
+    "vencimiento": null,
+    "dificultad": "Difícil"
+  },
+  {
+    "id": "289108cb-81d5-495a-ba94-017ad50d3c59",
+    "titulo": "Revisar roadmap.sh",
+    "descripcion": "Roadmap actualizado",
+    "estado": "Pendiente",
+    "creacion": "2025-11-03T18:20:59.336Z",
+    "ultimaEdicion": "2025-11-03T18:20:59.336Z",
+    "vencimiento": null,
+    "dificultad": "Medio"
+  },
+  {
+    "id": "4c0fa271-9342-4a5f-84c8-746962e8cc71",
+    "titulo": "De Prueba",
+    "descripcion": "probando",
+    "estado": "En Curso",
+    "creacion": "2025-11-03T19:07:48.787Z",
+    "ultimaEdicion": "2025-11-03T19:09:13.609Z",
+    "vencimiento": "2025-11-05T03:00:00.000Z",
+    "dificultad": "Fácil"
+  }
+]
