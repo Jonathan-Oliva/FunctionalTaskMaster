@@ -4,12 +4,13 @@ import { buscarPorTitulo } from './todoList.js';
 import { crearTarea, cambiarEstado } from './tarea.js';
 import { parseFecha } from './utils.js';
 
-prompt.start();
+prompt.start(); // Inicia el prompt para entrada de usuario y activa la consola
+// Función principal del menú
+export const menuPrincipal = async (estado) => { 
+  let { tareas, guardar } = estado; //Extrae las tareas y la función de guardado
 
-export const menuPrincipal = async (estado) => {
-  let { tareas, guardar } = estado;
-
-  while (true) {
+  //Bucle principal del menú que se repite hasta que el usuario decida salir
+  while (true) { 
     console.clear();
     console.log(`
 === GESTOR DE TAREAS ===
@@ -20,20 +21,20 @@ export const menuPrincipal = async (estado) => {
 [4] Eliminar una Tarea
 [0] Salir
     `);
-    const { opcion } = await prompt.get(['opcion']);
+    const { opcion } = await prompt.get(['opcion']); //Solicita la opción del usuario 
     
-    if (opcion === '0') {
+    if (opcion === '0') { //Salir de la aplicación
       await guardar(tareas);
       break;
     }
-
-    if (opcion === '1') {
+    
+    if (opcion === '1') { //Ver mis tareas 
       const result = await menuVerMisTareas({ tareas, guardar });
       tareas = result.tareas;
       continue;
     }
 
-    if (opcion === '2') {
+    if (opcion === '2') { //Buscar una tarea por título
       const { texto } = await prompt.get(['texto']);
       const resultados = buscarPorTitulo(tareas, texto || '');
       console.log(resultados.length ? 'Resultados:' : 'No encontrado.');
@@ -46,7 +47,7 @@ export const menuPrincipal = async (estado) => {
       console.log('=== AGREGAR TAREA ===\n');
 
       // TÍTULO OBLIGATORIO
-      let titulo;
+      let titulo; 
       while (!titulo?.trim()) {
         const input = await prompt.get(['Título (obligatorio)']);
         titulo = input['Título (obligatorio)'];
@@ -93,7 +94,7 @@ export const menuPrincipal = async (estado) => {
         required: false 
       }]);
 
-      try {
+      try { // Intentar crear la tarea y manejar errores
         const nueva = crearTarea(
           titulo.trim(),
           desc || '',
@@ -111,7 +112,8 @@ export const menuPrincipal = async (estado) => {
         console.log(`\nError: ${error.message}\n`);
       }
 
-      await prompt.get(['enter']);
+      await prompt.get(['enter']); // Pausa hasta que el usuario presione Enter 
+      console.log("Pulse enter para continuar..."); 
     }
 
     // === ELIMINAR TAREA ===
@@ -119,6 +121,7 @@ export const menuPrincipal = async (estado) => {
       if (tareas.length === 0) {
         console.log('No hay tareas para eliminar.\n');
         await prompt.get(['enter']);
+        console.log("Pulse enter para continuar..."); 
         continue;
       }
 
@@ -139,7 +142,7 @@ export const menuPrincipal = async (estado) => {
 
       if (n > 0 && n <= tareas.length) {
         const tareaEliminada = tareas[n - 1];
-        tareas = tareas.filter((_, i) => i !== n - 1);
+        tareas = tareas.filter((_, i) => i !== n - 1); //Elimina la tarea seleccionada por indice 
         console.log(`\nTarea eliminada: "${tareaEliminada.titulo}"\n`);
       } else {
         console.log('Número inválido.\n');
@@ -149,5 +152,5 @@ export const menuPrincipal = async (estado) => {
     }
   }
 
-  return { tareas };
+  return { tareas }; // Devuelve el estado final con las tareas actualizadas 
 };

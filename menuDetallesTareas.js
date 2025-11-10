@@ -2,7 +2,7 @@ import prompt from 'prompt';
 import { actualizarTareaPorId } from './todoList.js';
 import { parseFecha } from './utils.js';
 
-export const menuDetallesTarea = async (estado, tareaId) => {
+export const menuDetallesTarea = async (estado, tareaId) => { ///Función para mostrar y editar detalles de una tarea específica
   let { tareas, guardar } = estado;
   const tarea = tareas.find(t => t.id === tareaId);
   if (!tarea) return { tareas, guardar };

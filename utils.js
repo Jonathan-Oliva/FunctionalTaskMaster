@@ -1,3 +1,5 @@
+//Esta función convierte una cadena de fecha en un objeto Date válido o null si es inválida
+
 export const parseFecha = (fecha) => {
   if (!fecha || fecha === '0') return null;
   const partes = fecha.split(/[-/]/);
@@ -6,4 +8,4 @@ export const parseFecha = (fecha) => {
   if (isNaN(d) || isNaN(m) || isNaN(a)) return null;
   const date = new Date(a, m - 1, d);
   return date.getFullYear() === a && date.getMonth() === m - 1 && date.getDate() === d ? date : null;
-};
+}; // 

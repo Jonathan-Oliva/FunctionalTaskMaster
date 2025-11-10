@@ -1,6 +1,6 @@
 import prompt from 'prompt';
 import { filtrarTareas, ordenarTareas, actualizarTareaPorId } from './todoList.js';
-import { parseFecha } from './utils.js';
+import { parseFecha } from './utils.js'; // Función para convertir texto a fecha
 
 export const mostrarListado = async (estado, filtro, orden) => {
   let { tareas, guardar } = estado;
@@ -35,7 +35,7 @@ export const mostrarListado = async (estado, filtro, orden) => {
   if (n > 0 && n <= tareasFiltradas.length) {
     const tareaOriginal = tareasFiltradas[n - 1];
 
-    // === MOSTRAR DETALLE ===
+    // === MOSTRAR DETALLE DE CADA TAREA ELEGIDA===
     const mostrarDetalle = () => {
       console.clear();
       console.log('=== DETALLE DE TAREA ===\n');
@@ -113,7 +113,7 @@ export const mostrarListado = async (estado, filtro, orden) => {
         }
       }
 
-      // === SOLUCIÓN: NO MODIFICAR tareaOriginal ===
+      // Si hubo cambios, actualiza y cambia detalles 
       if (Object.keys(cambios).length > 0) {
         cambios.ultimaEdicion = ahora;
         tareas = actualizarTareaPorId(tareas, tareaOriginal.id, cambios);
@@ -131,5 +131,5 @@ export const mostrarListado = async (estado, filtro, orden) => {
     await prompt.get(['enter']);
   }
 
-  return { tareas, guardar };
+  return { tareas, guardar }; // Devuelve el estado actualizado
 };

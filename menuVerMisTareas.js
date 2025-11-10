@@ -2,7 +2,7 @@ import prompt from 'prompt';
 import { filtrarTareas, ordenarTareas } from './todoList.js';
 import { mostrarListado } from './mostrarListado.js';
 
-export const menuVerMisTareas = async (estado) => {
+export const menuVerMisTareas = async (estado) => { //Crea el menú para ver tareas según filtros y orden
   console.clear();
   console.log(`
 ¿Qué tareas deseas ver?
